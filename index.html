@@ -13,6 +13,11 @@
       font-family: 'Roboto', sans-serif;
     }
 
+    .rowsButton {
+        margin: 48px;
+        padding: 12px;
+    }
+
     #container {
       width: 960px;
       display: flex;
@@ -20,21 +25,24 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+      border: 1px solid rgb(0, 0, 0)
     }
 
     .box {
         background-color: #ffffff;
         float: left;
         box-sizing: border-box;
+        margin: 0px;
     }
 
     .box-border {
-        border: var(--border-size, 0) solid black;
+        border: var(--border-size, 0) solid rgb(255, 255, 255);
     }
     
   </style>
 </head>
 <body>
+  <button id="rowsButton">Enter Rows</button>
   <div id="container">
      
   </div>
