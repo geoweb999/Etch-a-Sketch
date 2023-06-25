@@ -1,5 +1,6 @@
-var numBoxes = 16;
-var borderSize = 2;
+var numBoxes = 1024;
+var rows = 32
+var borderSize = 0;
 var length = 960 / numBoxes - 2 * borderSize;
 
 // Get the container element
@@ -7,12 +8,12 @@ var container = document.getElementById("container");
 
 // Set the border size and calculate the box width and height
 var borderSize = 2;
-var boxWidth = (960 - (4 * borderSize)) / 4; // 960 is the container width
-var boxHeight = (960 - (4 * borderSize)) / 4; // 960 is the container height
+var boxWidth = (960 - (rows * borderSize)) / rows; // 960 is the container width
+var boxHeight = (960 - (rows * borderSize)) / rows; // 960 is the container height
 
 // Create the 4x4 matrix
-for (var i = 0; i < 4; i++) {
-  for (var j = 0; j < 4; j++) {
+for (var i = 0; i < rows; i++) {
+  for (var j = 0; j < rows; j++) {
     // Create a box element
     var box = document.createElement("div");
     box.className = "box box-border"; // Add the .box-border class
