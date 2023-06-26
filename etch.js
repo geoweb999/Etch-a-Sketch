@@ -17,7 +17,8 @@ rowsButton.addEventListener("click", function() {
     var borderSize = 1;
     var containerSize = 960;
     var boxSize = (containerSize - (rows + 1) * borderSize) / rows;
-    
+    var saveColor;
+
     // Create the matrix
     for (var i = 0; i < rows; i++) {
       for (var j = 0; j < rows; j++) {
@@ -34,19 +35,29 @@ rowsButton.addEventListener("click", function() {
   
         // Add event listener for hover effect
         box.addEventListener("mouseenter", function() {
-          var computedStyle = window.getComputedStyle(this);
-          var currentColor = computedStyle.backgroundColor;
-          var rgbValues = currentColor.match(/\d+/g);
-          var r = parseInt(rgbValues[0]);
-          var g = parseInt(rgbValues[1]);
-          var b = parseInt(rgbValues[2]);
-          var darkerR = Math.round(r * 0.9);
-          var darkerG = Math.round(g * 0.9);
-          var darkerB = Math.round(b * 0.9);
-          this.style.backgroundColor = `rgb(${darkerR}, ${darkerG}, ${darkerB})`;
+            var computedStyle = window.getComputedStyle(this);
+            var currentColor = computedStyle.backgroundColor;
+            var rgbValues = currentColor.match(/\d+/g);
+            var r = parseInt(rgbValues[0]);
+            var g = parseInt(rgbValues[1]);
+            var b = parseInt(rgbValues[2]);
+            var darkerR = Math.round(r * 0.9);
+            var darkerG = Math.round(g * 0.9);
+            var darkerB = Math.round(b * 0.9);
+            saveColor = `rgb(${darkerR}, ${darkerG}, ${darkerB})`;
+            this.style.backgroundColor = "red";
         });
-  
+            
+        // Add event listener for hover effect
+        box.addEventListener("mouseleave", function() {
+            this.style.backgroundColor = saveColor;
+        });
 
+        box.addEventListener("dblclick", function() {
+            this.style.backgroundColor = "white";
+            var computedStyle = window.getComputedStyle(this);
+            saveColor = computedStyle.backgroundColor;
+        });
   
         // Add the box to the container
         container.appendChild(box);
