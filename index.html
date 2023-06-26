@@ -39,15 +39,32 @@
     .box-border {
         border: var(--border-size, 0) solid rgb(255, 255, 255);
     }
+
+    h1 {
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .help {
+        text-align: center;
+    }
     
   </style>
 </head>
 <body>
-  <button id="rowsButton">Enter Rows</button>
-  <div id="container">
-     
-  </div>
+    <div id="main">
+        <h1>
+            Etch-A-Sketch
+        </h1>
+        <div id="help">
+            Draw with mouse.  Double-click to clear cell.
+        </div>     
+    </div>
+    <button id="rowsButton">Enter Rows</button>
+    <div id="container">
+        
+    </div>
 
-  <script src="etch.js"></script>
+    <script src="etch.js"></script>
 </body>
 </html>
